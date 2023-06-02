@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8jx5sqd0s2p8"]
+
+[node name="Pong" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0.329412, 0.329412, 0.329412, 1)
