@@ -14,6 +14,16 @@ config/name="Maize-Made Arcade"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
+[display]
+
+window/size/viewport_width=1000
+window/size/viewport_height=1000
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
