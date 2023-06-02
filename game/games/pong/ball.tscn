@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqcrglhtl01f"]
+
+[ext_resource type="Texture2D" uid="uid://d1py5cndpxj0m" path="res://games/pong/assets/ball.png" id="1_i2ygp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujkim"]
+size = Vector2(26, 26)
+
+[node name="Ball" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i2ygp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ujkim")
