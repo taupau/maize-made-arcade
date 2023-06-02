@@ -6,8 +6,14 @@ var ball_speed = Vector2(ball_linear_speed, 0)
 
 @onready var left_height = $LeftPlayer/CollisionShape2D.get_shape().get_rect().size.y
 @onready var right_height = $RightPlayer/CollisionShape2D.get_shape().get_rect().size.y
+
+func _ready():
+	set_physics_process(false)
 	
 func _process(delta):
+	if not is_physics_processing():
+		return
+	
 	if Input.is_action_pressed("p1_up"):
 		$LeftPlayer.position.y += -1 * bar_speed * delta
 	if Input.is_action_pressed("p1_down"):
@@ -43,3 +49,7 @@ func _on_player_1_goal_score():
 
 func _on_player_2_goal_score():
 	print("score")
+
+func _on_menu_start():
+	$Menu.hide()
+	set_physics_process(true)

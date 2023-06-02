@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b83jygb4iyhjv"]
+
+[ext_resource type="Script" path="res://games/pong/menu.gd" id="1_ysyub"]
+
+[node name="Menu" type="CanvasGroup"]
+script = ExtResource("1_ysyub")
+
+[node name="Title" type="Label" parent="."]
+offset_top = 172.0
+offset_right = 1000.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 60
+text = "Pong"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+offset_left = 404.0
+offset_top = 669.0
+offset_right = 604.0
+offset_bottom = 732.0
+theme_override_font_sizes/font_size = 40
+text = "Begin"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
