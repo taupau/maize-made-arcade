@@ -70,21 +70,31 @@ func _physics_process(delta):
 func check_score_and_end(score, player):
 	if score == 10:
 		$Ball.hide()
+		$Player.hide()
+		$AI.hide()
+		if player == 0:
+			$GameOver/Winner.text = "AI wins"
+		else:
+			$GameOver/Winner.text = "You win"
+		$GameOver.show()
 		set_physics_process(false)
+		$EndGame.start()
 
-func _on_player_1_goal_score():
+func _on_ai_score():
 	left_score += 1
 	$Score/LeftScore.text = "%s" % left_score
 	$Ball.position.x = 500
 	$Ball.position.y = 500
 	ball_speed = Vector2(-1 * ball_linear_speed, 0)
+	check_score_and_end(left_score, 0)
 
-func _on_player_2_goal_score():
+func _on_player_score():
 	right_score += 1
 	$Score/RightScore.text = "%s" % right_score
 	$Ball.position.x = 500
 	$Ball.position.y = 500
 	ball_speed = Vector2(ball_linear_speed, 0)
+	check_score_and_end(left_score, 1)
 	
 func ai_track(delta):
 	var out = ($Ball.position.y - $AI.position.y) * 0.04
@@ -115,3 +125,19 @@ func _on_menu_start(difficulty):
 	$Menu.hide()
 	$Score.show()
 	set_physics_process(true)
+
+func _on_end_game_timeout():
+	$AI.position.y = 500
+	$Player.position.y = 500
+	$Player.show()
+	$AI.show()
+	left_score = 0
+	right_score = 0
+	$Score/LeftScore.text = "0"
+	$Score/RightScore.text = "0"
+	$Score.hide()
+	$GameOver.hide()
+	$Menu.show()
+	$Ball.position.x = 500
+	$Ball.position.y = 500
+	$Ball.show()
