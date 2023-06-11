@@ -7,6 +7,9 @@ var ball_speed = Vector2(ball_linear_speed, 0)
 @onready var left_height = $LeftPlayer/CollisionShape2D.get_shape().get_rect().size.y
 @onready var right_height = $RightPlayer/CollisionShape2D.get_shape().get_rect().size.y
 
+var left_score = 0
+var right_score = 0
+
 func _ready():
 	set_physics_process(false)
 	
@@ -39,17 +42,30 @@ func _physics_process(delta):
 			y_percent = abs(($Ball.position.y - ($LeftPlayer.position.y + (left_height / 2)))) / left_height
 		else:
 			y_percent = abs(($Ball.position.y - ($RightPlayer.position.y + (right_height / 2)))) / right_height
-			
 		ball_speed.y = -800 * y_percent + ball_linear_speed
 		ball_speed.x *= -1
 		ball_speed = ball_speed.normalized() * ball_linear_speed
+		
+func check_score_and_end(score, player):
+	if score == 10:
+		$Ball.hide()
+		set_physics_process(false)
 
 func _on_player_1_goal_score():
-	print("score")
+	left_score += 1
+	$Score/LeftScore.text = "%s" % left_score
+	$Ball.position.x = 500
+	$Ball.position.y = 500
+	ball_speed = Vector2(-1 * ball_linear_speed, 0)
 
 func _on_player_2_goal_score():
-	print("score")
+	right_score += 1
+	$Score/RightScore.text = "%s" % right_score
+	$Ball.position.x = 500
+	$Ball.position.y = 500
+	ball_speed = Vector2(ball_linear_speed, 0)
 
 func _on_menu_start():
 	$Menu.hide()
+	$Score.show()
 	set_physics_process(true)

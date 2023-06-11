@@ -7,6 +7,7 @@
 size = Vector2(26, 26)
 
 [node name="Ball" type="CharacterBody2D"]
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_hvxsr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
