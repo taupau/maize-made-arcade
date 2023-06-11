@@ -1,6 +1,15 @@
 extends CanvasGroup
 
-signal start
+signal start(difficulty)
 
-func _on_start_pressed():
-	start.emit()
+func _ready():
+	$Easy.grab_focus()
+	
+func _on_easy_pressed():
+	start.emit(0)
+
+func _on_medium_pressed():
+	start.emit(1)
+
+func _on_hard_pressed():
+	start.emit(2)

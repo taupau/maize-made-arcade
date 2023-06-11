@@ -1,8 +1,22 @@
 extends Node2D
 
-var bar_speed = 500
-var ball_linear_speed = 400
-var ball_speed = Vector2(ball_linear_speed, 0)
+@export var AI_EASY_SPEED = 100
+@export var AI_MEDIUM_SPEED = 250
+@export var AI_HARD_SPEED = 500
+
+@export var PLAYER_EASY_SPEED = 200
+@export var PLAYER_MEDIUM_SPEED = 300
+@export var PLAYER_HARD_SPEED = 400
+
+@export var BALL_EASY_SPEED = 200
+@export var BALL_MEDIUM_SPEED = 300
+@export var BALL_HARD_SPEED = 400
+
+var player_speed
+var ai_speed
+var ball_linear_speed
+
+var ball_speed
 
 var left_score = 0
 var right_score = 0
@@ -15,13 +29,13 @@ func _process(delta):
 		return
 	
 	if Input.is_action_pressed("p1_up"):
-		$AI.position.y += -1 * bar_speed * delta
+		$AI.position.y += -1 * ai_speed * delta
 	if Input.is_action_pressed("p1_down"):
-		$AI.position.y += bar_speed * delta
+		$AI.position.y += ai_speed * delta
 	if Input.is_action_pressed("p2_up"):
-		$Player.position.y += -1 * bar_speed * delta
+		$Player.position.y += -1 * player_speed * delta
 	if Input.is_action_pressed("p2_down"):
-		$Player.position.y += bar_speed * delta
+		$Player.position.y += player_speed * delta
 	
 	var left_height = $AI/Sprite2D.texture.get_size().y * $AI.scale.y
 	var right_height = $Player/Sprite2D.texture.get_size().y * $Player.scale.y
@@ -68,7 +82,23 @@ func _on_player_2_goal_score():
 	$Ball.position.y = 500
 	ball_speed = Vector2(ball_linear_speed, 0)
 
-func _on_menu_start():
+func _on_menu_start(difficulty):
+	match difficulty:
+		0:
+			player_speed = PLAYER_EASY_SPEED
+			ai_speed = AI_EASY_SPEED
+			ball_linear_speed = BALL_EASY_SPEED
+		1:
+			player_speed = PLAYER_MEDIUM_SPEED
+			ai_speed = AI_MEDIUM_SPEED
+			ball_linear_speed = BALL_MEDIUM_SPEED
+		2:
+			player_speed = PLAYER_HARD_SPEED
+			ai_speed = AI_HARD_SPEED
+			ball_linear_speed = BALL_HARD_SPEED
+			
+	ball_speed = Vector2(ball_linear_speed, 0)
+
 	$Menu.hide()
 	$Score.show()
 	set_physics_process(true)
