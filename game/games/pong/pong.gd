@@ -4,9 +4,6 @@ var bar_speed = 500
 var ball_linear_speed = 400
 var ball_speed = Vector2(ball_linear_speed, 0)
 
-@onready var left_height = $LeftPlayer/CollisionShape2D.get_shape().get_rect().size.y
-@onready var right_height = $RightPlayer/CollisionShape2D.get_shape().get_rect().size.y
-
 var left_score = 0
 var right_score = 0
 
@@ -26,8 +23,11 @@ func _process(delta):
 	if Input.is_action_pressed("p2_down"):
 		$RightPlayer.position.y += bar_speed * delta
 	
-	$LeftPlayer.position.y = clamp($LeftPlayer.position.y, 5 + (left_height / 2), 1000 - (left_height / 2) - 5)
-	$RightPlayer.position.y = clamp($RightPlayer.position.y, 5 + (right_height / 2), 1000 - (left_height / 2) - 5)
+	var left_height = $LeftPlayer/Sprite2D.texture.get_size().y * $LeftPlayer.scale.y
+	var right_height = $RightPlayer/Sprite2D.texture.get_size().y * $RightPlayer.scale.y
+	
+	$LeftPlayer.position.y = clamp($LeftPlayer.position.y, 5 + (left_height / 2), 995 - (left_height / 2))
+	$RightPlayer.position.y = clamp($RightPlayer.position.y, 5 + (right_height / 2), 995 - (right_height / 2))
 		
 func _physics_process(delta):
 	var collision = $Ball.move_and_collide(ball_speed * delta)
@@ -38,6 +38,9 @@ func _physics_process(delta):
 			return
 		
 		var y_percent
+		var left_height = $LeftPlayer/Sprite2D.texture.get_size().y * $LeftPlayer.scale.y
+		var right_height = $RightPlayer/Sprite2D.texture.get_size().y * $RightPlayer.scale.y
+		
 		if name == "LeftPlayer":
 			y_percent = abs(($Ball.position.y - ($LeftPlayer.position.y + (left_height / 2)))) / left_height
 		else:

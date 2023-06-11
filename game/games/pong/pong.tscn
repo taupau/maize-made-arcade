@@ -18,11 +18,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="LeftPlayer" parent="." instance=ExtResource("1_8w5qf")]
 position = Vector2(50, 500)
-scale = Vector2(1, 0.75)
 
 [node name="RightPlayer" parent="." instance=ExtResource("1_8w5qf")]
 position = Vector2(950, 500)
-scale = Vector2(1, 0.75)
 
 [node name="Ball" parent="." instance=ExtResource("2_2um7j")]
 position = Vector2(500, 500)
@@ -41,7 +39,7 @@ scale = Vector2(0.1, 4)
 
 [node name="Player1Goal" parent="." instance=ExtResource("4_4e3a3")]
 position = Vector2(1000, 0)
-scale = Vector2(1, 100)
+scale = Vector2(1, 1000)
 
 [node name="Player2Goal" parent="." instance=ExtResource("4_4e3a3")]
 scale = Vector2(1, 100)
