@@ -15,19 +15,19 @@ func _process(delta):
 		return
 	
 	if Input.is_action_pressed("p1_up"):
-		$LeftPlayer.position.y += -1 * bar_speed * delta
+		$AI.position.y += -1 * bar_speed * delta
 	if Input.is_action_pressed("p1_down"):
-		$LeftPlayer.position.y += bar_speed * delta
+		$AI.position.y += bar_speed * delta
 	if Input.is_action_pressed("p2_up"):
-		$RightPlayer.position.y += -1 * bar_speed * delta
+		$Player.position.y += -1 * bar_speed * delta
 	if Input.is_action_pressed("p2_down"):
-		$RightPlayer.position.y += bar_speed * delta
+		$Player.position.y += bar_speed * delta
 	
-	var left_height = $LeftPlayer/Sprite2D.texture.get_size().y * $LeftPlayer.scale.y
-	var right_height = $RightPlayer/Sprite2D.texture.get_size().y * $RightPlayer.scale.y
+	var left_height = $AI/Sprite2D.texture.get_size().y * $AI.scale.y
+	var right_height = $Player/Sprite2D.texture.get_size().y * $Player.scale.y
 	
-	$LeftPlayer.position.y = clamp($LeftPlayer.position.y, 5 + (left_height / 2), 995 - (left_height / 2))
-	$RightPlayer.position.y = clamp($RightPlayer.position.y, 5 + (right_height / 2), 995 - (right_height / 2))
+	$AI.position.y = clamp($AI.position.y, 5 + (left_height / 2), 995 - (left_height / 2))
+	$Player.position.y = clamp($Player.position.y, 5 + (right_height / 2), 995 - (right_height / 2))
 		
 func _physics_process(delta):
 	var collision = $Ball.move_and_collide(ball_speed * delta)
@@ -38,13 +38,13 @@ func _physics_process(delta):
 			return
 		
 		var y_percent
-		var left_height = $LeftPlayer/Sprite2D.texture.get_size().y * $LeftPlayer.scale.y
-		var right_height = $RightPlayer/Sprite2D.texture.get_size().y * $RightPlayer.scale.y
+		var left_height = $AI/Sprite2D.texture.get_size().y * $AI.scale.y
+		var right_height = $Player/Sprite2D.texture.get_size().y * $Player.scale.y
 		
-		if name == "LeftPlayer":
-			y_percent = abs(($Ball.position.y - ($LeftPlayer.position.y + (left_height / 2)))) / left_height
+		if name == "AI":
+			y_percent = abs(($Ball.position.y - ($AI.position.y + (left_height / 2)))) / left_height
 		else:
-			y_percent = abs(($Ball.position.y - ($RightPlayer.position.y + (right_height / 2)))) / right_height
+			y_percent = abs(($Ball.position.y - ($Player.position.y + (right_height / 2)))) / right_height
 		ball_speed.y = -800 * y_percent + ball_linear_speed
 		ball_speed.x *= -1
 		ball_speed = ball_speed.normalized() * ball_linear_speed

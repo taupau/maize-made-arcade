@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b83jygb4iyhjv"]
+[gd_scene load_steps=3 format=3 uid="uid://b83jygb4iyhjv"]
 
 [ext_resource type="Script" path="res://games/pong/menu.gd" id="1_ysyub"]
+[ext_resource type="FontFile" uid="uid://xcijgatc4p08" path="res://fonts/ARCADE_I.TTF" id="2_vjxi3"]
 
 [node name="Menu" type="CanvasGroup"]
 script = ExtResource("1_ysyub")
@@ -9,6 +10,7 @@ script = ExtResource("1_ysyub")
 offset_top = 172.0
 offset_right = 1000.0
 offset_bottom = 258.0
+theme_override_fonts/font = ExtResource("2_vjxi3")
 theme_override_font_sizes/font_size = 60
 text = "Pong"
 horizontal_alignment = 1
