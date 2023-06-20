@@ -4,7 +4,7 @@ signal start(difficulty)
 
 
 func _ready():
-	$Easy.grab_focus()
+	$Difficulty/Easy.grab_focus()
 
 
 func _on_easy_pressed():

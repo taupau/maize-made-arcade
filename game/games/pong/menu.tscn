@@ -16,31 +16,32 @@ text = "Pong"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Easy" type="Button" parent="."]
-offset_left = 404.0
-offset_top = 632.0
-offset_right = 604.0
-offset_bottom = 695.0
+[node name="Difficulty" type="VBoxContainer" parent="."]
+offset_left = 400.0
+offset_top = 712.0
+offset_right = 596.0
+offset_bottom = 881.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Easy" type="Button" parent="Difficulty"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Easy"
 
-[node name="Medium" type="Button" parent="."]
-offset_left = 404.0
-offset_top = 720.0
-offset_right = 604.0
-offset_bottom = 783.0
+[node name="Medium" type="Button" parent="Difficulty"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Medium"
 
-[node name="Hard" type="Button" parent="."]
-offset_left = 404.0
-offset_top = 804.0
-offset_right = 604.0
-offset_bottom = 867.0
+[node name="Hard" type="Button" parent="Difficulty"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Hard
 "
 
-[connection signal="pressed" from="Easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="Medium" to="." method="_on_medium_pressed"]
-[connection signal="pressed" from="Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Difficulty/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Difficulty/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Difficulty/Hard" to="." method="_on_hard_pressed"]
