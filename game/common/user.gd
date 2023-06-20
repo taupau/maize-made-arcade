@@ -1,13 +1,19 @@
 extends Node
 
 var logged_in = null
-var last_saved = null
 
 var data = {}:
 	set(value):
 		_save_data(value)
+		
+func logout():
+	logged_in = null
+	data = {}
 
 func login_or_create(name: String, pin: int):
+	if not logged_in == null:
+		logout()
+	
 	var file = FileAccess.open("user://logins.json", FileAccess.READ)
 	var data = file.get_line()
 	file.close()
@@ -48,15 +54,11 @@ func _get_data():
 	
 	json.parse(data)
 	return json.get_data()
-	
-func _get_or_create(data: Dictionary, field_name: String, default: Variant):
-	if not data.has(field_name):
-		data[field_name] = default
-		return default
-	else:
-		return data[field_name]
 		
 func _save_data(data: Dictionary):
+	if logged_in == null:
+		return
+	
 	var file_name = "user://user_%s.json" % logged_in
 	var file = FileAccess.open(file_name, FileAccess.WRITE)
 	file.store_line(JSON.stringify(data))
