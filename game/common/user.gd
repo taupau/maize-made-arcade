@@ -2,19 +2,25 @@ extends Node
 
 var logged_in = null
 
-var data = {}:
-	set(value):
-		_save_data(value)
+var data = {}
 		
 func logout():
 	logged_in = null
 	data = {}
+	
+func _read_file_or_init(name: String):
+	if not FileAccess.file_exists(name):
+		var file = FileAccess.open(name, FileAccess.WRITE)
+		file.store_line(JSON.stringify({}))
+		file.close()
+	
+	return FileAccess.open(name, FileAccess.READ)
 
 func login_or_create(name: String, pin: int):
 	if not logged_in == null:
 		logout()
 	
-	var file = FileAccess.open("user://logins.json", FileAccess.READ)
+	var file = _read_file_or_init("user://logins.json")
 	var data = file.get_line()
 	file.close()
 	
@@ -35,8 +41,11 @@ func login_or_create(name: String, pin: int):
 		return false
 	
 	logged_in = name
-	data = _get_data()
+	_get_data()
 	return true
+	
+func get_or_default(field: String, default: Variant):
+	return default if not data.has(field) else data[field]
 
 func _get_data():
 	if logged_in == null:
@@ -47,15 +56,15 @@ func _get_data():
 	if not FileAccess.file_exists(file_name):
 		return {}
 	
-	var file = FileAccess.open(file_name, FileAccess.READ)
-	var data = file.get_line()
+	var file = _read_file_or_init(file_name)
+	var user_data = file.get_line()
 	file.close()
 	var json = JSON.new()
 	
-	json.parse(data)
-	return json.get_data()
+	json.parse(user_data)
+	data = json.get_data()
 		
-func _save_data(data: Dictionary):
+func save_data():
 	if logged_in == null:
 		return
 	
