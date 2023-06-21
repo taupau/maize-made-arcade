@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsqaodgvjiweo"]
+
+[ext_resource type="Script" path="res://common/text_input.gd" id="1_n57e3"]
+
+[node name="TextInput" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -850.0
+offset_bottom = -964.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n57e3")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="CharBlink" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="CharBlink" to="." method="_on_char_blink_timeout"]
