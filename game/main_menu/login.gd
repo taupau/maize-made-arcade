@@ -1,19 +1,21 @@
 extends Control
 
-var stopped = false
-var displayed = true
-var char_int = 97
-var queued_char = '_'
-var input_string = ""
-@onready var focus = $CredentialInput/Name
-
-var flag = false
+@onready var name_input = $CredentialInputLabels/NameRow/NameInput
+@onready var pin_input = $CredentialInputLabels/PinRow/PinInput
 
 func _ready():
-	$NameInput.enable()
+	name_input.enable()
 
 func _process(delta):
-	if not flag and $NameInput.input_string.length() == 3:
-		$NameInput.disable()
-		$PinInput.enable()
-		flag = true
+	if Input.is_action_just_pressed("down") and name_input.enabled:
+		name_input.disable()
+		pin_input.enable()
+	elif Input.is_action_just_pressed("up") and pin_input.enabled:
+		pin_input.disable()
+		name_input.enable()
+	elif Input.is_action_just_pressed("down") and pin_input.enabled:
+		pin_input.disable()
+		$Login.grab_focus()
+	elif Input.is_action_just_pressed("up") and $Login.has_focus():
+		$Login.release_focus()
+		pin_input.enable()

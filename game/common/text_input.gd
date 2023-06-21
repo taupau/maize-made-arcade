@@ -1,17 +1,26 @@
 extends Control
 
-var enabled = false
+@export var max_length = 5
+@export var low_bound = 97
+@export var upper_bound = 122
+@export var text_color = Color.WHITE
 
+var enabled = false
 var stopped = false
 var displayed = true
-var char_int = 97
-
+var char_int = low_bound
 var queued_char = '_'
 var input_string = ""
 
+func _ready():
+	$Text.add_theme_color_override("font_color", text_color)
+
 func enable():
 	enabled = true
+	if stopped: return
+	
 	$CharBlink.start()
+	$Text.text = "%s%s" % [input_string, queued_char]
 
 func disable():
 	enabled = false
@@ -26,7 +35,7 @@ func _process(delta):
 	if not stopped and Input.is_action_just_pressed("enter") and queued_char != '_':
 		input_string = "%s%s" % [input_string, queued_char]
 		
-		if input_string.length() >= 5:
+		if input_string.length() >= max_length:
 			$CharBlink.stop()
 			$Text.text = input_string
 			stopped = true
@@ -44,8 +53,8 @@ func _process(delta):
 			stopped = false
 			
 	if Input.is_action_just_pressed("cycle_letter_forward"):
-		if queued_char == '_' or char_int == 122:
-			char_int = 97
+		if queued_char == '_' or char_int == upper_bound:
+			char_int = low_bound
 		else:
 			char_int += 1
 		
@@ -53,8 +62,8 @@ func _process(delta):
 		$Text.text = "%s%s" % [input_string, queued_char]
 		
 	if Input.is_action_just_pressed("cycle_letter_backward"):
-		if queued_char == '_' or char_int == 97:
-			char_int = 122
+		if queued_char == '_' or char_int == low_bound:
+			char_int = upper_bound
 		else:
 			char_int -= 1
 		
