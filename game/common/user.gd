@@ -10,40 +10,40 @@ func logout():
 	data = {}
 
 
-func _read_file_or_init(name: String):
-	if not FileAccess.file_exists(name):
-		var file = FileAccess.open(name, FileAccess.WRITE)
+func _read_file_or_init(file_name: String):
+	if not FileAccess.file_exists(file_name):
+		var file = FileAccess.open(file_name, FileAccess.WRITE)
 		file.store_line(JSON.stringify({}))
 		file.close()
 
-	return FileAccess.open(name, FileAccess.READ)
+	return FileAccess.open(file_name, FileAccess.READ)
 
 
-func login_or_create(name: String, pin: int):
+func login_or_create(username: String, pin: int):
 	if not logged_in == null:
 		logout()
 
 	var file = _read_file_or_init("user://logins.json")
-	var data = file.get_line()
+	var raw = file.get_line()
 	file.close()
 
 	var json = JSON.new()
-	json.parse(data)
+	json.parse(raw)
 
 	var json_data: Dictionary = json.get_data()
 	if json_data == null:
 		json_data = {}
 
-	if not json_data.has(name):
-		json_data[name] = pin
+	if not json_data.has(username):
+		json_data[username] = pin
 		var write_file = FileAccess.open("user://logins.json", FileAccess.WRITE)
 		write_file.store_line(JSON.stringify(json_data))
 		write_file.close()
 
-	if json_data[name] != pin:
+	if json_data[username] != pin:
 		return false
 
-	logged_in = name
+	logged_in = username
 	_get_data()
 	return true
 

@@ -3,10 +3,12 @@ extends Control
 @onready var name_input = $CredentialInputLabels/NameRow/NameInput
 @onready var pin_input = $CredentialInputLabels/PinRow/PinInput
 
+
 func _ready():
 	name_input.enable()
 
-func _process(delta):
+
+func _process(_delta):
 	if Input.is_action_just_pressed("down") and name_input.enabled:
 		name_input.disable()
 		pin_input.enable()
