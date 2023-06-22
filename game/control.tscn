@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwflpvcowpwr7"]
+
+[ext_resource type="Texture2D" uid="uid://dyqfghmu3jg6f" path="res://Screenshot 2023-06-22 184351.png" id="1_r4171"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="Player" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 104.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 25
+text = "Player"
+
+[node name="Pong" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 342.0
+offset_top = 367.0
+offset_right = 468.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 25
+text = "Pong"
+
+[node name="Login" type="Label" parent="."]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 24.0
+offset_right = 965.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 25
+text = "Login"
+
+[node name="MMA" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.5
+offset_top = 24.0
+offset_right = 53.5
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.796078, 0.0196078, 1)
+theme_override_font_sizes/font_size = 35
+text = "MAIZE-MADE
+ARCADE"
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -152.0
+offset_right = 332.0
+offset_bottom = 148.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+item_count = 7
+item_0/text = "Pong"
+item_1/text = "Victors' Crossing"
+item_2/text = "Match"
+item_3/text = "Excitebike"
+item_4/text = "randomgame"
+item_5/text = "anothergame"
+item_6/text = "lastgame"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 366.0
+offset_right = 376.0
+offset_bottom = 406.0
+scale = Vector2(14.2192, 9.53515)
+color = Color(1, 0.796078, 0.0196078, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 353.0
+offset_right = 361.0
+offset_bottom = 394.0
+scale = Vector2(14.2192, 9.53515)
+color = Color(0, 0.152941, 0.298039, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 427.0
+offset_right = 2221.0
+offset_bottom = 472.0
+theme_override_font_sizes/font_size = 10
+text = "This is a decription of the pong game, and it's very descriptive! 
+So very very very description, you have paddles and you hit ball,
+ basically."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 643.0
+offset_right = 728.0
+offset_bottom = 683.0
+theme_override_constants/separation = 34
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Easy"
+
+[node name="Medium" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Medium
+"
+
+[node name="Medium3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Hard"
+
+[node name="Screenshot2023-06-22184351" type="Sprite2D" parent="."]
+position = Vector2(596, 556)
+scale = Vector2(0.453737, 0.453737)
+texture = ExtResource("1_r4171")

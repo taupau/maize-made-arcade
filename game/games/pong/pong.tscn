@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://hqcrglhtl01f" path="res://games/pong/ball.tscn" id="2_2um7j"]
 [ext_resource type="PackedScene" uid="uid://cr0tiedgqc1cu" path="res://games/pong/goal.tscn" id="4_4e3a3"]
 [ext_resource type="PackedScene" uid="uid://b83jygb4iyhjv" path="res://games/pong/menu.tscn" id="5_g5nqb"]
-[ext_resource type="PackedScene" path="res://games/pong/score.tscn" id="6_31a13"]
-[ext_resource type="PackedScene" path="res://games/pong/game_over.tscn" id="7_dhlhn"]
+[ext_resource type="PackedScene" uid="uid://bpdd8a4o2seix" path="res://games/pong/score.tscn" id="6_31a13"]
+[ext_resource type="PackedScene" uid="uid://dhndmexax4gn" path="res://games/pong/game_over.tscn" id="7_dhlhn"]
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_ooieu")
