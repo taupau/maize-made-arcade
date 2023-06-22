@@ -8,28 +8,7 @@ var red = false
 
 
 func _ready():
-	name_input.enable()
-
-
-func _process(_delta):
-	if Input.is_action_just_pressed("down") and name_input.enabled:
-		name_input.disable()
-		pin_input.enable()
-	elif Input.is_action_just_pressed("up") and pin_input.enabled:
-		pin_input.disable()
-		name_input.enable()
-	elif Input.is_action_just_pressed("down") and pin_input.enabled:
-		pin_input.disable()
-		$Login.grab_focus()
-	elif Input.is_action_just_pressed("up") and $Login.has_focus():
-		$Login.release_focus()
-		pin_input.enable()
-	elif Input.is_action_just_pressed("down") and $Login.has_focus():
-		$Login.release_focus()
-		$Back.grab_focus()
-	elif Input.is_action_just_pressed("up") and $Back.has_focus():
-		$Back.release_focus()
-		$Login.grab_focus()
+	name_input.grab_focus()
 
 func _on_login_pressed():
 	var username = name_input.input_string

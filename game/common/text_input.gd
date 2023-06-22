@@ -17,7 +17,7 @@ func _ready():
 	$Text.add_theme_color_override("font_color", text_color)
 
 
-func enable():
+func _enable():
 	enabled = true
 	if stopped:
 		return
@@ -26,7 +26,7 @@ func enable():
 	$Text.text = "%s%s" % [input_string, queued_char]
 
 
-func disable():
+func _disable():
 	enabled = false
 	$CharBlink.stop()
 	displayed = false
@@ -35,6 +35,11 @@ func disable():
 
 func _process(_delta):
 	if not enabled:
+		if has_focus():
+			_enable()
+		return
+	elif not has_focus():
+		_disable()
 		return
 
 	if not stopped and Input.is_action_just_pressed("enter") and queued_char != "_":
