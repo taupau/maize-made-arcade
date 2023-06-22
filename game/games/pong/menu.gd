@@ -17,3 +17,7 @@ func _on_medium_pressed():
 
 func _on_hard_pressed():
 	start.emit(2)
+
+
+func _on_back_pressed():
+	Global.change_scene("res://main_menu/main_menu.tscn")
