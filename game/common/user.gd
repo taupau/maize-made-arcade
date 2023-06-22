@@ -19,7 +19,7 @@ func _read_file_or_init(file_name: String):
 	return FileAccess.open(file_name, FileAccess.READ)
 
 
-func login_or_create(username: String, pin: int):
+func login_or_create(username: String, pin: String):
 	if not logged_in == null:
 		logout()
 
