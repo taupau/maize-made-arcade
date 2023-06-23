@@ -38,6 +38,7 @@ text = "Medium"
 
 [node name="Hard" type="Button" parent="Difficulty"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../Back")
 theme_override_font_sizes/font_size = 40
 text = "Hard
 "
@@ -47,6 +48,7 @@ offset_left = 432.0
 offset_top = 924.0
 offset_right = 564.0
 offset_bottom = 972.0
+focus_neighbor_top = NodePath("../Difficulty/Hard")
 theme_override_font_sizes/font_size = 40
 text = "Back"
 

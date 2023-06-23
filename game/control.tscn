@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwflpvcowpwr7"]
+[gd_scene load_steps=4 format=3 uid="uid://dwflpvcowpwr7"]
 
 [ext_resource type="Texture2D" uid="uid://dyqfghmu3jg6f" path="res://Screenshot 2023-06-22 184351.png" id="1_r4171"]
+[ext_resource type="Script" path="res://control.gd" id="1_stdwe"]
+[ext_resource type="Texture2D" uid="uid://d1mdusehcq4up" path="res://common/pxArt(1).png" id="3_sknx3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,8 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_stdwe")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1000.0
 offset_bottom = 1000.0
@@ -25,15 +28,25 @@ offset_bottom = 47.0
 theme_override_font_sizes/font_size = 25
 text = "Player"
 
-[node name="Pong" type="Label" parent="."]
-z_index = 1
+[node name="Player2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 342.0
-offset_top = 367.0
-offset_right = 468.0
-offset_bottom = 400.0
+offset_left = -18.0
+offset_top = 208.0
+offset_right = 1032.0
+offset_bottom = 241.0
+theme_override_colors/font_color = Color(1, 0.796078, 0.0196078, 1)
 theme_override_font_sizes/font_size = 25
-text = "Pong"
+text = "+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x"
+
+[node name="Player3" type="Label" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = 832.0
+offset_right = 1032.0
+offset_bottom = 865.0
+theme_override_colors/font_color = Color(1, 0.796078, 0.0196078, 1)
+theme_override_font_sizes/font_size = 25
+text = "+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x"
 
 [node name="Login" type="Label" parent="."]
 layout_mode = 0
@@ -55,20 +68,22 @@ offset_right = 53.5
 offset_bottom = 57.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.796078, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(1, 0.796078, 0.0196078, 1)
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 35
 text = "MAIZE-MADE
 ARCADE"
 horizontal_alignment = 1
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="GameList" type="ItemList" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 32.0
-offset_top = -152.0
-offset_right = 332.0
-offset_bottom = 148.0
+offset_left = 24.0
+offset_top = -179.0
+offset_right = 324.0
+offset_bottom = 121.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 item_count = 7
@@ -80,57 +95,85 @@ item_4/text = "randomgame"
 item_5/text = "anothergame"
 item_6/text = "lastgame"
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="GameContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -29.0
+offset_right = 46.0
+offset_bottom = 11.0
+
+[node name="BG1" type="ColorRect" parent="GameContainer"]
 layout_mode = 0
-offset_left = 336.0
-offset_top = 366.0
-offset_right = 376.0
-offset_bottom = 406.0
+offset_left = 313.0
+offset_top = 348.0
+offset_right = 360.0
+offset_bottom = 395.0
 scale = Vector2(14.2192, 9.53515)
 color = Color(1, 0.796078, 0.0196078, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="BG2" type="ColorRect" parent="GameContainer"]
 layout_mode = 0
 offset_left = 320.0
 offset_top = 353.0
-offset_right = 361.0
-offset_bottom = 394.0
+offset_right = 366.0
+offset_bottom = 399.0
 scale = Vector2(14.2192, 9.53515)
 color = Color(0, 0.152941, 0.298039, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="GameTitle" type="Label" parent="GameContainer"]
 layout_mode = 0
-offset_left = 343.0
-offset_top = 427.0
-offset_right = 2221.0
-offset_bottom = 472.0
-theme_override_font_sizes/font_size = 10
-text = "This is a decription of the pong game, and it's very descriptive! 
-So very very very description, you have paddles and you hit ball,
- basically."
+offset_left = 581.0
+offset_top = 368.0
+offset_right = 707.0
+offset_bottom = 401.0
+theme_override_font_sizes/font_size = 25
+text = "Pong"
+horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="GameImage" type="Sprite2D" parent="GameContainer"]
+position = Vector2(645, 570)
+scale = Vector2(0.453737, 0.453737)
+texture = ExtResource("1_r4171")
+
+[node name="GameMenu" type="HBoxContainer" parent="GameContainer"]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 643.0
-offset_right = 728.0
-offset_bottom = 683.0
+offset_left = 530.0
+offset_top = 667.0
+offset_right = 783.0
+offset_bottom = 707.0
 theme_override_constants/separation = 34
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Button1" type="Button" parent="GameContainer/GameMenu"]
 layout_mode = 2
 text = "Easy"
 
-[node name="Medium" type="Button" parent="HBoxContainer"]
+[node name="Button2" type="Button" parent="GameContainer/GameMenu"]
 layout_mode = 2
 text = "Medium
 "
 
-[node name="Medium3" type="Button" parent="HBoxContainer"]
+[node name="Button3" type="Button" parent="GameContainer/GameMenu"]
 layout_mode = 2
 text = "Hard"
 
-[node name="Screenshot2023-06-22184351" type="Sprite2D" parent="."]
-position = Vector2(596, 556)
-scale = Vector2(0.453737, 0.453737)
-texture = ExtResource("1_r4171")
+[node name="GameDesc" type="Label" parent="GameContainer"]
+layout_mode = 2
+offset_left = 350.0
+offset_top = 426.0
+offset_right = 969.0
+offset_bottom = 471.0
+theme_override_font_sizes/font_size = 10
+text = "This is a decription of the pong game, and it's very descriptive! 
+So very very very description, you have paddles and you hit ball,
+ basically."
+horizontal_alignment = 1
+
+[node name="Flicker" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="TPELogo" type="Sprite2D" parent="."]
+position = Vector2(943, 944)
+texture = ExtResource("3_sknx3")
+
+[connection signal="timeout" from="Flicker" to="." method="_on_flicker_timeout"]
