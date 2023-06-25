@@ -28,26 +28,6 @@ offset_bottom = 47.0
 theme_override_font_sizes/font_size = 25
 text = "Player"
 
-[node name="Player2" type="Label" parent="."]
-layout_mode = 0
-offset_left = -18.0
-offset_top = 208.0
-offset_right = 1032.0
-offset_bottom = 241.0
-theme_override_colors/font_color = Color(1, 0.796078, 0.0196078, 1)
-theme_override_font_sizes/font_size = 25
-text = "+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x"
-
-[node name="Player3" type="Label" parent="."]
-layout_mode = 0
-offset_left = -18.0
-offset_top = 832.0
-offset_right = 1032.0
-offset_bottom = 865.0
-theme_override_colors/font_color = Color(1, 0.796078, 0.0196078, 1)
-theme_override_font_sizes/font_size = 25
-text = "+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x"
-
 [node name="Login" type="Label" parent="."]
 layout_mode = 0
 offset_left = 858.0

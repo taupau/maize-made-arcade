@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://167xvxcc08b6"]
+
+[ext_resource type="PackedScene" uid="uid://b7m5mv1d4to" path="res://games/asteroids/characters/ship.tscn" id="1_3gvol"]
+[ext_resource type="Script" path="res://games/asteroids/asteroids.gd" id="1_nt4xv"]
+[ext_resource type="PackedScene" uid="uid://xxk01oticlcy" path="res://games/asteroids/menu.tscn" id="3_7ls6x"]
+
+[node name="Asteroids" type="Node2D"]
+script = ExtResource("1_nt4xv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="Ship" parent="." instance=ExtResource("1_3gvol")]
+position = Vector2(500, 500)
+
+[node name="VectorBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 800.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Menu" parent="." instance=ExtResource("3_7ls6x")]
