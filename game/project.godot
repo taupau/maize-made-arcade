@@ -22,8 +22,8 @@ User="*res://common/user.gd"
 
 [display]
 
-window/size/viewport_width=1000
-window/size/viewport_height=1000
+window/size/viewport_width=1280
+window/size/viewport_height=1024
 window/stretch/mode="canvas_items"
 
 [gui]

@@ -47,10 +47,20 @@ func _physics_process(delta):
 		var segmented = segmented_ship.instantiate()
 		segmented.position = $Ship.position
 		segmented.rotation = $Ship.rotation
+		segmented.destroyed.connect(_on_ship_destroyed)
 		add_child(segmented)
 		if ship_collision.get_collider().get("name").contains("Asteroid"):
 			_destroy_asteroid(ship_collision.get_collider())
 		$Ship.hide()
+		
+		lives -= 1
+		if lives == 2:
+			$Menu/Life3.hide()
+		elif lives == 1:
+			$Menu/Life2.hide()
+		elif lives == 0:
+			$Menu/Life1.hide()
+			$GameOverDelay.start()
 	
 	for a in get_children():
 		if a.name.contains("Asteroid"):
@@ -133,3 +143,22 @@ func _get_scene_size(a):
 	var sprite = a.find_child("Sprite2D") as Sprite2D
 	var rect = sprite.get_rect()
 	return a.scale * (rect.size * sprite.scale)
+	
+
+### !!! SIGNALS !!! ###
+func _on_ship_destroyed():
+	if lives == 0:
+		return
+		
+	$Ship.position = Vector2(viewport_size.x / 2, viewport_size.y / 2)
+	velocity = Vector2(0, 0)
+	$Ship.rotation = 0
+	$Ship.show()
+
+
+func _on_game_over_blink_timeout():
+	if lives == 0: $GameOver.visible = !$GameOver.visible
+
+
+func _on_game_over_delay_timeout():
+	pass

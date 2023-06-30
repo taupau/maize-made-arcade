@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://167xvxcc08b6"]
+[gd_scene load_steps=5 format=3 uid="uid://167xvxcc08b6"]
 
 [ext_resource type="PackedScene" uid="uid://b7m5mv1d4to" path="res://games/asteroids/characters/ship.tscn" id="1_3gvol"]
 [ext_resource type="Script" path="res://games/asteroids/asteroids.gd" id="1_nt4xv"]
 [ext_resource type="PackedScene" uid="uid://xxk01oticlcy" path="res://games/asteroids/menu.tscn" id="3_7ls6x"]
+[ext_resource type="FontFile" uid="uid://eceu308kdn2r" path="res://fonts/Hyperspace Bold.otf" id="4_avdnh"]
 
 [node name="Asteroids" type="Node2D"]
 script = ExtResource("1_nt4xv")
@@ -31,3 +32,32 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Menu" parent="." instance=ExtResource("3_7ls6x")]
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 303.0
+offset_top = 383.0
+offset_right = 690.0
+offset_bottom = 473.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_avdnh")
+theme_override_font_sizes/font_size = 70
+text = "Game Over"
+
+[node name="GameOverBlink" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="GameOverDelay" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="GameOverBlink" to="." method="_on_game_over_blink_timeout"]
+[connection signal="timeout" from="GameOverDelay" to="." method="_on_game_over_delay_timeout"]
