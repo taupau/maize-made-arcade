@@ -40,6 +40,7 @@ offset_top = 24.0
 offset_right = -24.0
 offset_bottom = 57.0
 grow_horizontal = 0
+focus_neighbor_bottom = NodePath("../PlayContainer/Play")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 25
 text = "Login"
@@ -138,6 +139,7 @@ scale = Vector2(0.95, 0.95)
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="PongPreview" type="Control" parent="PlayContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,44 +184,42 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -104.0
-offset_right = 50.0
-offset_bottom = -64.0
+offset_left = -92.0
+offset_top = -143.0
+offset_right = 92.0
+offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 0
-focus_neighbor_left = NodePath("../Left")
 focus_neighbor_top = NodePath("../../Login")
-focus_neighbor_right = NodePath("../Right")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 56
 text = "play"
 
-[node name="Left" type="Button" parent="PlayContainer"]
+[node name="Left" type="Label" parent="PlayContainer"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -24.0
-offset_right = 80.0
-offset_bottom = 24.0
+offset_left = -56.0
+offset_top = -25.5
+offset_right = -16.0
+offset_bottom = 25.5
 grow_vertical = 2
 focus_neighbor_right = NodePath("../Right")
 focus_neighbor_bottom = NodePath("../Play")
 theme_override_font_sizes/font_size = 40
 text = "←"
 
-[node name="Right" type="Button" parent="PlayContainer"]
+[node name="Right" type="Label" parent="PlayContainer"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.0
-offset_right = -40.0
-offset_bottom = 24.0
+offset_left = 16.0
+offset_top = -25.5
+offset_right = 56.0
+offset_bottom = 25.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
@@ -230,12 +230,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -66.0
-offset_top = 32.0
-offset_right = 66.0
-offset_bottom = 83.0
+offset_left = -82.0
+offset_top = 27.0
+offset_right = 82.0
+offset_bottom = 90.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "Pong"
 
 [node name="Desc" type="Label" parent="PlayContainer"]
@@ -245,61 +245,125 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = -279.5
-offset_right = 269.0
-offset_bottom = -179.5
+offset_left = -450.0
+offset_top = -258.5
+offset_right = 450.0
+offset_bottom = -93.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 22
 text = "One of the earliest arcade games ever created, play the mma rendition of the 1972 classic: PONG!"
+horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="Title2" type="Label" parent="PlayContainer"]
-layout_mode = 2
-offset_left = 361.0
-offset_top = 232.0
-offset_right = 598.0
-offset_bottom = 258.0
-theme_override_font_sizes/font_size = 19
-text = "$ Leaderboard $"
 
 [node name="LeaderboardContainer" type="Control" parent="PlayContainer"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 361.0
-offset_top = -152.0
-offset_right = 401.0
-offset_bottom = -112.0
+offset_left = -389.0
+offset_top = -144.0
+offset_right = -349.0
+offset_bottom = -104.0
+grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Title" type="Label" parent="PlayContainer/LeaderboardContainer"]
+layout_mode = 2
+offset_left = -35.0
+offset_right = 340.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 30
+text = "$ Leaderboard $"
 
 [node name="List" type="VBoxContainer" parent="PlayContainer/LeaderboardContainer"]
 layout_mode = 2
 offset_left = 32.0
-offset_top = 28.0
-offset_right = 204.0
-offset_bottom = 159.0
+offset_top = 44.0
+offset_right = 247.0
+offset_bottom = 175.0
 
-[node name="First" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+[node name="1" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "1. TAU - 2600"
 
-[node name="First2" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+[node name="2" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
 layout_mode = 2
-text = "2. TAU - 2600"
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
 
-[node name="First3" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+[node name="3" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
 layout_mode = 2
-text = "3. TAU - 2600"
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
 
-[node name="First4" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+[node name="4" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
 layout_mode = 2
-text = "4. TAU - 2600"
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
 
-[node name="First5" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+[node name="5" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
 layout_mode = 2
-text = "5. TAU - 2600"
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
+
+[node name="6" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
+
+[node name="7" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
+
+[node name="8" type="Label" parent="PlayContainer/LeaderboardContainer/List"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "1. TAU - 2600"
+
+[node name="Div" type="ColorRect" parent="PlayContainer"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 95.0
+offset_right = 957.0
+offset_bottom = 110.0
+color = Color(1, 0.796078, 0.0196078, 1)
+
+[node name="Div2" type="ColorRect" parent="PlayContainer"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 219.0
+offset_right = 957.0
+offset_bottom = 234.0
+color = Color(1, 0.796078, 0.0196078, 1)
+
+[node name="Div3" type="ColorRect" parent="PlayContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -159.5
+offset_right = -123.0
+offset_bottom = -144.5
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+color = Color(1, 0.796078, 0.0196078, 1)
+
+[node name="Div4" type="ColorRect" parent="PlayContainer"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 563.0
+offset_right = 957.0
+offset_bottom = 578.0
+color = Color(1, 0.796078, 0.0196078, 1)
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(641.313, 54.3126)
@@ -308,3 +372,4 @@ texture = ExtResource("5_ssg5v")
 
 [connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
 [connection signal="timeout" from="Flicker" to="." method="_on_flicker_timeout"]
+[connection signal="pressed" from="PlayContainer/Play" to="." method="_on_play_pressed"]

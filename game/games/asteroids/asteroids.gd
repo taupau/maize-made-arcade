@@ -2,8 +2,7 @@ extends Node2D
 
 var rotation_speed = 1500
 var thrust = 2
-var asteroid_speed = 60
-var broken_speed = 150
+var asteroid_speed = 80
 var bullet_speed = 400
 
 var velocity = Vector2(0, 0)
@@ -27,7 +26,7 @@ var lives = 3
 @onready var v_pos = $VectorBox.position
 
 func _ready():
-	_spawn_asteroids(5)
+	_spawn_asteroids(6)
 	
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
@@ -107,9 +106,10 @@ func _spawn_children(a: CharacterBody2D):
 		
 	for i in 2:
 		var roid_inst = asteroid.instantiate() as CharacterBody2D
+		if new_scale.x == 0.25: print("!!spawn!!")
 		roid_inst.scale = new_scale
 		roid_inst.position = a.position
-		roid_inst.velocity = Vector2.from_angle(rng.randf_range(0, 6.28)) * broken_speed
+		roid_inst.velocity = (Vector2.from_angle(rng.randf_range(0, 6.28)) * asteroid_speed) / new_scale
 		add_child(roid_inst)
 		
 func _teleport_within_bounds(position: Vector2, size: Vector2):
