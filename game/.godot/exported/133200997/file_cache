@@ -1,0 +1,9 @@
+res://games/pong/ball.tscn::c8df2266f4eff192aea2ca5659aae6b6::1686476700::res://.godot/exported/133200997/export-82f57e1d3e754ca2c7c8c8d7bcf1ab46-ball.scn
+res://games/pong/game_over.tscn::3629ebaab60e2d25529e66b9f09072be::1686663577::res://.godot/exported/133200997/export-a01f0ceb7d419a2791b29dbb0914217b-game_over.scn
+res://games/pong/goal.tscn::3ad195d58d309fc3b1df87f8f5d83db3::1686128054::res://.godot/exported/133200997/export-dcf3ca829865bc1f36809568b599b27a-goal.scn
+res://games/pong/menu.tscn::e47960836f7e85f6b1c00e9bbf2c525a::1686663577::res://.godot/exported/133200997/export-370c761d5c26d9dcd1ffaa087fae53b5-menu.scn
+res://games/pong/player.tscn::32073708e6d4f00fd85e586d6a1dd924::1686476700::res://.godot/exported/133200997/export-7dba17aed4cc6ccf58048300bfea4fdc-player.scn
+res://games/pong/pong.tscn::2ea518b002e18aa00cc4331ce84dff06::1686663577::res://.godot/exported/133200997/export-23a66b624bc860804ac00eadcf555385-pong.scn
+res://games/pong/score.tscn::1865b174bdc01912247ad2cf9226d8e8::1686476700::res://.godot/exported/133200997/export-2d684cd6b14801f31bdca6fd9f4a10a3-score.scn
+res://main.tscn::ebb51b94358ee212d6ae4575a15ed1c7::1686128085::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://main_menu.tscn::640ccb7b28cb67a3c256f1881de1325c::1686128054::res://.godot/exported/133200997/export-8b03550a1e82db90fe95208a9e9dbb82-main_menu.scn

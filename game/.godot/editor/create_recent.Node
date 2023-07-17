@@ -1,0 +1,12 @@
+TileMap
+Sprite2D
+CollisionShape2D
+CharacterBody2D
+AnimatedSprite2D
+HBoxContainer
+Button
+Label
+ColorRect
+ItemList
+Timer
+CanvasLayer
