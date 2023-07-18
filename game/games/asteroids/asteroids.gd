@@ -78,9 +78,9 @@ func _physics_process(delta):
 			
 func _destroy_asteroid(a):
 	match a.scale.x:
-		1.0: score += 25
-		0.5: score += 100
-		0.25: score += 250
+		1.0: score += 20
+		0.5: score += 50
+		0.25: score += 100
 
 	_spawn_children(a)
 	a.queue_free()
