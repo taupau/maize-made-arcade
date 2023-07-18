@@ -35,9 +35,9 @@ func _process(delta):
 	if not is_physics_processing():
 		return
 
-	if Input.is_action_pressed("p2_up"):
+	if Input.is_action_pressed("j_up"):
 		$Player.position.y += -1 * player_speed * delta
-	if Input.is_action_pressed("p2_down"):
+	if Input.is_action_pressed("j_down"):
 		$Player.position.y += player_speed * delta
 
 	var left_height = $AI/Sprite2D.texture.get_size().y * $AI.scale.y

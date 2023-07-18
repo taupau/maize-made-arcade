@@ -29,12 +29,12 @@ func _ready():
 	_spawn_asteroids(6)
 	
 func _physics_process(delta):
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("j_left"):
 		$Ship.rotate(1500 * delta)
-	elif Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("j_right"):
 		$Ship.rotate(-1500 * delta)
 		
-	if Input.is_action_just_pressed("enter"):
+	if Input.is_action_just_pressed("left"):
 		_fire_bullet()
 	
 	if Input.is_action_pressed("up"):

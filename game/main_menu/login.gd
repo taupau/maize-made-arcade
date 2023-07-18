@@ -16,7 +16,7 @@ func _on_login_pressed():
 	
 	var result = User.login_or_create(username, pin)
 	if result:
-		Global.change_scene("res://main_menu/main_menu.tscn")
+		Global.change_scene("res://main_menu/splash.tscn")
 		return
 		
 	$LoginBlinker.start()
@@ -39,4 +39,4 @@ func _on_login_blinker_timeout():
 
 
 func _on_back_pressed():
-	Global.change_scene("res://main_menu/main_menu.tscn")
+	Global.change_scene("res://main_menu/splash.tscn")
