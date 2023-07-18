@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://h4h8sndfi1cq"]
 
-[ext_resource type="Script" path="res://main_menu/splash.gd" id="1_v34e4"]
-[ext_resource type="Texture2D" uid="uid://ddxub68ywryan" path="res://common/bg.png" id="2_feejv"]
-[ext_resource type="Texture2D" uid="uid://bp7kdousqpdwx" path="res://common/large-logo.png" id="3_dtykr"]
-[ext_resource type="Texture2D" uid="uid://d1mdusehcq4up" path="res://common/logo.png" id="4_eymae"]
+[ext_resource type="Script" path="res://menus/splash.gd" id="1_t7ms6"]
+[ext_resource type="Texture2D" uid="uid://ddxub68ywryan" path="res://common/bg.png" id="2_skvgx"]
+[ext_resource type="Texture2D" uid="uid://bp7kdousqpdwx" path="res://common/large-logo.png" id="3_gec3s"]
+[ext_resource type="Texture2D" uid="uid://d1mdusehcq4up" path="res://common/logo.png" id="4_v2a6i"]
 
 [node name="Splash" type="Control"]
 layout_mode = 3
@@ -12,18 +12,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v34e4")
+script = ExtResource("1_t7ms6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 1024.0
-texture = ExtResource("2_feejv")
+texture = ExtResource("2_skvgx")
 
 [node name="Splash Logo" type="Sprite2D" parent="."]
 position = Vector2(640, 368)
 scale = Vector2(0.3665, 0.3665)
-texture = ExtResource("3_dtykr")
+texture = ExtResource("3_gec3s")
 
 [node name="Login" type="Button" parent="."]
 layout_mode = 1
@@ -77,118 +77,99 @@ theme_override_font_sizes/font_size = 16
 text = "A TPE PROJECT"
 
 [node name="Logos" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Logo8" type="Sprite2D" parent="Logos"]
 position = Vector2(790, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo9" type="Sprite2D" parent="Logos"]
 position = Vector2(846, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo11" type="Sprite2D" parent="Logos"]
 position = Vector2(1014, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo12" type="Sprite2D" parent="Logos"]
 position = Vector2(958, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo13" type="Sprite2D" parent="Logos"]
 position = Vector2(902, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo14" type="Sprite2D" parent="Logos"]
 position = Vector2(1070, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo15" type="Sprite2D" parent="Logos"]
 position = Vector2(1126, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo16" type="Sprite2D" parent="Logos"]
 position = Vector2(1182, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
-
-[node name="Logo16" type="Sprite2D" parent="Logos/Logo16"]
-position = Vector2(1231.18, 986)
-scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo17" type="Sprite2D" parent="Logos"]
 position = Vector2(1238, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
-
-[node name="Logo16" type="Sprite2D" parent="Logos/Logo17"]
-position = Vector2(1231.18, 986)
-scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo10" type="Sprite2D" parent="Logos"]
 position = Vector2(36, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo18" type="Sprite2D" parent="Logos"]
 position = Vector2(92, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo19" type="Sprite2D" parent="Logos"]
 position = Vector2(260, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo20" type="Sprite2D" parent="Logos"]
 position = Vector2(204, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo21" type="Sprite2D" parent="Logos"]
 position = Vector2(148, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo22" type="Sprite2D" parent="Logos"]
 position = Vector2(316, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo23" type="Sprite2D" parent="Logos"]
 position = Vector2(372, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo24" type="Sprite2D" parent="Logos"]
 position = Vector2(428, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
-
-[node name="Logo16" type="Sprite2D" parent="Logos/Logo24"]
-position = Vector2(1231.18, 986)
-scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Logo25" type="Sprite2D" parent="Logos"]
 position = Vector2(484, 986)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
-
-[node name="Logo16" type="Sprite2D" parent="Logos/Logo25"]
-position = Vector2(1231.18, 986)
-scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("4_eymae")
+texture = ExtResource("4_v2a6i")
 
 [node name="Blinker" type="Timer" parent="."]
 wait_time = 0.1

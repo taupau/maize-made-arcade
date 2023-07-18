@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8mtfntktf7qr"]
 
-[ext_resource type="Script" path="res://main_menu/login.gd" id="1_5u6md"]
+[ext_resource type="Script" path="res://menus/login.gd" id="1_5u6md"]
 [ext_resource type="PackedScene" uid="uid://dsqaodgvjiweo" path="res://common/text_input.tscn" id="2_38aef"]
 [ext_resource type="Texture2D" uid="uid://ddxub68ywryan" path="res://common/bg.png" id="2_bj40h"]
 
