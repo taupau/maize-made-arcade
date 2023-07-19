@@ -42,9 +42,8 @@ func _process(_delta):
 		_disable()
 		return
 
-	if not stopped and Input.is_action_just_pressed("enter") and queued_char != "_":
+	if not stopped and Input.is_action_just_pressed("right") and queued_char != "_":
 		input_string = "%s%s" % [input_string, queued_char]
-
 		if input_string.length() >= max_length:
 			$CharBlink.stop()
 			$Text.text = input_string
@@ -54,7 +53,7 @@ func _process(_delta):
 		queued_char = "_"
 		$Text.text = "%s%s" % [input_string, queued_char]
 
-	if Input.is_action_just_pressed("backspace"):
+	if Input.is_action_just_pressed("left"):
 		input_string = input_string.substr(0, input_string.length() - 1)
 		$Text.text = input_string
 		queued_char = "_"
@@ -62,7 +61,7 @@ func _process(_delta):
 			$CharBlink.start()
 			stopped = false
 
-	if Input.is_action_just_pressed("cycle_letter_forward"):
+	if Input.is_action_just_pressed("up"):
 		if queued_char == "_" or char_int == upper_bound:
 			char_int = low_bound
 		else:
@@ -71,7 +70,7 @@ func _process(_delta):
 		queued_char = String.chr(char_int)
 		$Text.text = "%s%s" % [input_string, queued_char]
 
-	if Input.is_action_just_pressed("cycle_letter_backward"):
+	if Input.is_action_just_pressed("down"):
 		if queued_char == "_" or char_int == low_bound:
 			char_int = upper_bound
 		else:

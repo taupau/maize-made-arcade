@@ -11,6 +11,12 @@ var green = false
 {
 	"button": $GameContainer/Asteroids,
 	"title": "Asteroids",
+	"desc": "Navigate your ship through this space-themed shooter, but make sure to destroy all of the asteroids and alien ships in your path!",
+	"path": "res://games/asteroids/asteroids.tscn"
+},
+{
+	"button": $GameContainer/VCrossing,
+	"title": "VCrossing",
 	"desc": "desc",
 	"path": "res://games/asteroids/asteroids.tscn"
 }]
@@ -24,19 +30,32 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("j_down"):
+		$SelectionBlinker.stop()
 		(games[selected]["button"] as Label).add_theme_color_override("font_color", Color.WHITE)
-		selected = posmod(selected - 1, 1)
+		selected = posmod(selected + 1, 3)
+		(games[selected]["button"] as Label).add_theme_color_override("font_color", Color.LIME_GREEN)
+		print(selected)
 		$GameContainer/GameTitle.text = games[selected]["title"]
 		$GameContainer/GameDesc.text = games[selected]["desc"]
+		$SelectionBlinker.start()
 	elif Input.is_action_just_pressed("j_up"):
+		$SelectionBlinker.stop()
 		(games[selected]["button"] as Label).add_theme_color_override("font_color", Color.WHITE)
-		selected = posmod(selected + 1, 1)
+		selected = posmod(selected - 1, 3)
+		(games[selected]["button"] as Label).add_theme_color_override("font_color", Color.LIME_GREEN)
 		$GameContainer/GameTitle.text = games[selected]["title"]
 		$GameContainer/GameDesc.text = games[selected]["desc"]
+		$SelectionBlinker.start()
 
 
+var colored = false
 func _on_blinker_timeout():
-	pass # Replace with function body.
+	if colored:
+		$"Filled-name-logo".hide()
+	else:
+		$"Filled-name-logo".show()
+		
+	colored = !colored
 
 
 func _on_selection_blinker_timeout():

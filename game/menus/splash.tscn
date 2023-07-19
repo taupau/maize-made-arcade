@@ -171,9 +171,5 @@ position = Vector2(484, 986)
 scale = Vector2(0.611111, 0.611111)
 texture = ExtResource("4_v2a6i")
 
-[node name="Blinker" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
-[connection signal="timeout" from="Blinker" to="." method="_on_blinker_timeout"]
+[connection signal="pressed" from="Guest" to="." method="_on_guest_pressed"]
