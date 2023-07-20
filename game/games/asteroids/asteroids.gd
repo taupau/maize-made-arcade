@@ -126,6 +126,11 @@ func _teleport_within_bounds(position: Vector2, size: Vector2):
 	
 	
 func _fire_bullet():
+	var bullets = 0
+	for i in get_children():
+		if i.name.contains("Bullet"): bullets += 1
+	if bullets >= 4: return
+	
 	var bullet_inst = bullet.instantiate() as CharacterBody2D
 	add_child(bullet_inst)
 	
