@@ -1,0 +1,22 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Variant [[No Variations]] of Project [mma_controller_shield.PrjPcb]
+   Generated File[pcb_Copper_Signal_Top.gbr]
+   Generated File[pcb_Copper_Signal_Bot.gbr]
+   Generated File[pcb_Legend_Top.gbr]
+   Generated File[pcb_Legend_Bot.gbr]
+   Generated File[pcb_Soldermask_Top.gbr]
+   Generated File[pcb_Soldermask_Bot.gbr]
+   Generated File[pcb_Paste_Top.gbr]
+   Generated File[pcb_Paste_Bot.gbr]
+   Generated File[pcb_Profile.gbr]
+   Generated File[pcb_NPTH_Drill.gbr]
+   Generated File[pcb_PTH_Drill.gbr]
+   Generated File[pcb.EXTREP]
+   Generated File[pcb.REP]
+
+
+Files Generated   : 13
+Documents Printed : 0
+
+Finished Output Generation At 7:20:09 PM On 8/9/2023

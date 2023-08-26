@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=NetD2_2 Pin=D1-2
+Change Net Name : Old Net Name=NetD2_2 New Net Name=NetD1_2
+Add Class Member: Failed to add class member : Component * TPE Title Block
