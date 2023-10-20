@@ -1,0 +1,4 @@
+Removed Member From Class: ClassName=schematic Member=DISP PWR
+Removed Member From Class: ClassName=schematic Member=Q1
+Removed Member From Class: ClassName=schematic Member=R9
+Add Class Member: Failed to add class member : Component * TPE Title Block
