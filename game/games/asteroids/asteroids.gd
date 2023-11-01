@@ -16,9 +16,9 @@ var lives = 3
 @onready var ship_size = _get_scene_size($Ship)
 @onready var viewport_size = get_viewport().size
 
-@onready var asteroid = preload("res://games/asteroids/characters/asteroid.tscn")
-@onready var bullet = preload("res://games/asteroids/characters/bullet.tscn")
-@onready var segmented_ship = preload("res://games/asteroids/characters/segmented_ship.tscn")
+@onready var asteroid: PackedScene = preload("res://games/asteroids/characters/asteroid.tscn")
+@onready var bullet: PackedScene = preload("res://games/asteroids/characters/bullet.tscn")
+@onready var segmented_ship: PackedScene = preload("res://games/asteroids/characters/segmented_ship.tscn")
 
 @onready var rng = RandomNumberGenerator.new()
 
@@ -76,18 +76,19 @@ func _physics_process(delta):
 		if a.name.contains("Asteroid") or a.name.contains("Bullet") or a.name.contains("Ship") and not a.name.contains("Segmented"):
 			a.position = _teleport_within_bounds(a.position, _get_scene_size(a))
 			
-func _destroy_asteroid(a):
-	match a.scale.x:
-		1.0: score += 20
-		0.5: score += 50
-		0.25: score += 100
+func _destroy_asteroid(a: Asteroid):
+	match a.size:
+		a.Size.LARGE: score += 20
+		a.Size.MEDIUM: score += 50
+		a.Size.SMALL: score += 100
 
 	_spawn_children(a)
 	a.queue_free()
 
 func _spawn_asteroids(count: int):
 	for i in count:
-		var roid_inst = asteroid.instantiate()
+		var roid_inst: Asteroid = asteroid.instantiate()
+		roid_inst.size = roid_inst.Size.LARGE
 		var roid_size = _get_scene_size(roid_inst)
 		add_child(roid_inst)
 		
@@ -99,14 +100,13 @@ func _spawn_asteroids(count: int):
 				
 		roid_inst.velocity = _random_box_unit_vector(roid_inst.position) * asteroid_speed
 	
-func _spawn_children(a: CharacterBody2D):
+func _spawn_children(a: Asteroid):
 	var new_scale = a.scale / 2
 	if new_scale.x < 0.25:
 		return
 		
 	for i in 2:
-		var roid_inst = asteroid.instantiate() as CharacterBody2D
-		if new_scale.x == 0.25: print("!!spawn!!")
+		var roid_inst: Asteroid = asteroid.instantiate()
 		roid_inst.scale = new_scale
 		roid_inst.position = a.position
 		roid_inst.velocity = (Vector2.from_angle(rng.randf_range(0, 6.28)) * asteroid_speed) / new_scale

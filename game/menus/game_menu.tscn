@@ -258,6 +258,7 @@ offset_top = 467.0
 offset_right = 535.0
 offset_bottom = 513.0
 theme = SubResource("Theme_uroff")
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "play"
 
@@ -268,32 +269,13 @@ offset_top = 467.0
 offset_right = 765.0
 offset_bottom = 513.0
 theme = SubResource("Theme_uroff")
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "ranks"
 
 [node name="SelectionBlinker" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
-
-[node name="User" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1039.0
-offset_top = 15.0
-offset_right = 1265.0
-offset_bottom = 48.0
-theme_override_font_sizes/font_size = 25
-text = "guest"
-horizontal_alignment = 2
-
-[node name="Logout" type="Button" parent="."]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 8.0
-offset_right = 148.0
-offset_bottom = 48.0
-focus_mode = 0
-theme_override_font_sizes/font_size = 25
-text = "logout"
 
 [connection signal="timeout" from="Blinker" to="." method="_on_blinker_timeout"]
 [connection signal="pressed" from="GameContainer/Play" to="." method="_on_play_pressed"]

@@ -25,39 +25,22 @@ position = Vector2(640, 368)
 scale = Vector2(0.3665, 0.3665)
 texture = ExtResource("3_gec3s")
 
-[node name="Login" type="Button" parent="."]
+[node name="Menu" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -84.0
-offset_top = -313.0
-offset_right = 81.0
-offset_bottom = -262.0
+offset_left = -133.5
+offset_top = -278.0
+offset_right = 130.5
+offset_bottom = -182.0
 grow_horizontal = 2
 grow_vertical = 0
-focus_neighbor_bottom = NodePath("../Guest")
 theme_override_font_sizes/font_size = 40
-text = "LOGIN"
-
-[node name="Guest" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -84.0
-offset_top = -225.0
-offset_right = 81.0
-offset_bottom = -174.0
-grow_horizontal = 2
-grow_vertical = 0
-focus_neighbor_top = NodePath("../Login")
-theme_override_font_sizes/font_size = 40
-text = "GUEST"
+text = "Press x
+to begin"
 
 [node name="Branding" type="Label" parent="."]
 layout_mode = 1
@@ -171,5 +154,4 @@ position = Vector2(484, 986)
 scale = Vector2(0.611111, 0.611111)
 texture = ExtResource("4_v2a6i")
 
-[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="Guest" to="." method="_on_guest_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
