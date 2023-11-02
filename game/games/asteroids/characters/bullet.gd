@@ -1,3 +1,4 @@
+class_name Bullet
 extends CharacterBody2D
 
 @export var max_dist = 400

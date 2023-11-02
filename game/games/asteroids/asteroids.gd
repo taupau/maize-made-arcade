@@ -48,7 +48,7 @@ func _physics_process(delta):
 		segmented.rotation = $Ship.rotation
 		segmented.destroyed.connect(_on_ship_destroyed)
 		add_child(segmented)
-		if ship_collision.get_collider().get("name").contains("Asteroid"):
+		if ship_collision.get_collider() is Asteroid:
 			_destroy_asteroid(ship_collision.get_collider())
 		$Ship.hide()
 		
@@ -62,18 +62,17 @@ func _physics_process(delta):
 			$GameOverDelay.start()
 	
 	for a in get_children():
-		if a.name.contains("Asteroid"):
-			a = a as CharacterBody2D
+		if a is Asteroid:
 			if a.move_and_slide():
 				var collision = a.get_last_slide_collision()
-				if collision.get_collider().get("name").contains("Bullet"):
+				if collision.get_collider() is Bullet:
 					_destroy_asteroid(a)
 					collision.get_collider().queue_free()
 					continue
-		elif a.name.contains("Bullet"):
+		elif a is Bullet:
 			a.move_and_slide()
 					
-		if a.name.contains("Asteroid") or a.name.contains("Bullet") or a.name.contains("Ship") and not a.name.contains("Segmented"):
+		if a is Asteroid or a is Bullet or a.name.contains("Ship") and not a.name.contains("Segmented"):
 			a.position = _teleport_within_bounds(a.position, _get_scene_size(a))
 			
 func _destroy_asteroid(a: Asteroid):
@@ -90,7 +89,6 @@ func _spawn_asteroids(count: int):
 		var roid_inst: Asteroid = asteroid.instantiate()
 		roid_inst.size = roid_inst.Size.LARGE
 		var roid_size = _get_scene_size(roid_inst)
-		add_child(roid_inst)
 		
 		match rng.randi_range(0, 3):
 			0: roid_inst.position = Vector2(-1 * roid_size.x / 2, rng.randi_range(v_pos.y, v_pos.y + v_size.y))
@@ -99,11 +97,10 @@ func _spawn_asteroids(count: int):
 			3: roid_inst.position = Vector2(rng.randi_range(v_pos.x, v_pos.x + v_size.x), viewport_size.y + roid_size.y / 2)
 				
 		roid_inst.velocity = _random_box_unit_vector(roid_inst.position) * asteroid_speed
+		add_child(roid_inst)
 	
 func _spawn_children(a: Asteroid):
 	var new_scale = a.scale / 2
-	if new_scale.x < 0.25:
-		return
 		
 	for i in 2:
 		var roid_inst: Asteroid = asteroid.instantiate()
@@ -128,7 +125,7 @@ func _teleport_within_bounds(position: Vector2, size: Vector2):
 func _fire_bullet():
 	var bullets = 0
 	for i in get_children():
-		if i.name.contains("Bullet"): bullets += 1
+		if i is Bullet: bullets += 1
 	if bullets >= 4: return
 	
 	var bullet_inst = bullet.instantiate() as CharacterBody2D
