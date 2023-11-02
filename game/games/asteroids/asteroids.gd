@@ -87,7 +87,6 @@ func _destroy_asteroid(a: Asteroid):
 func _spawn_asteroids(count: int):
 	for i in count:
 		var roid_inst: Asteroid = asteroid.instantiate()
-		roid_inst.size = roid_inst.Size.LARGE
 		var roid_size = _get_scene_size(roid_inst)
 		
 		match rng.randi_range(0, 3):
@@ -100,13 +99,16 @@ func _spawn_asteroids(count: int):
 		add_child(roid_inst)
 	
 func _spawn_children(a: Asteroid):
-	var new_scale = a.scale / 2
+	if a.size == a.Size.SMALL:
+		return
 		
+	var new_scale = a.scale / 2
 	for i in 2:
 		var roid_inst: Asteroid = asteroid.instantiate()
 		roid_inst.scale = new_scale
 		roid_inst.position = a.position
 		roid_inst.velocity = (Vector2.from_angle(rng.randf_range(0, 6.28)) * asteroid_speed) / new_scale
+		roid_inst.size = a.size - 1
 		add_child(roid_inst)
 		
 func _teleport_within_bounds(position: Vector2, size: Vector2):
@@ -163,4 +165,7 @@ func _on_game_over_blink_timeout():
 
 
 func _on_game_over_delay_timeout():
-	pass
+	$GameOver.visible = false
+	for a in get_children():
+		if a is Asteroid:
+			a.queue_free()
