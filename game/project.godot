@@ -26,10 +26,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=1024
 window/stretch/mode="canvas_items"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
-
 [gui]
 
 theme/custom="res://common/main_theme.tres"
