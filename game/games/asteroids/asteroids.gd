@@ -59,6 +59,8 @@ func _physics_process(delta):
 			$Menu/Life2.hide()
 		elif lives == 0:
 			$Menu/Life1.hide()
+			$GameOverBlink.start()
+			$Ship.hide()
 			$GameOverDelay.start()
 	
 	for a in get_children():
@@ -160,12 +162,20 @@ func _on_ship_destroyed():
 	$Ship.show()
 
 
-func _on_game_over_blink_timeout():
-	if lives == 0: $GameOver.visible = !$GameOver.visible
-
+func _on_game_over_blink_timeout(): $GameOver.visible = !$GameOver.visible
 
 func _on_game_over_delay_timeout():
+	$GameOverBlink.stop()
 	$GameOver.visible = false
+	
 	for a in get_children():
 		if a is Asteroid:
 			a.queue_free()
+			
+	$Ship.position = Vector2(viewport_size.x / 2, viewport_size.y / 2)
+	velocity = Vector2(0, 0)
+	$Ship.rotation = 0		
+	$Ship.show()
+	score = 0
+	
+	_spawn_asteroids(6)

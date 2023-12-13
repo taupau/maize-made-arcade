@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://common/global.gd"
-User="*res://common/user.gd"
 
 [display]
 
