@@ -1,0 +1,282 @@
+[gd_scene load_steps=9 format=3 uid="uid://0t7rq7esamdx"]
+
+[ext_resource type="Script" path="res://menus/game_menu.gd" id="1_qkqge"]
+[ext_resource type="Texture2D" uid="uid://ddxub68ywryan" path="res://common/bg.png" id="2_eiary"]
+[ext_resource type="Texture2D" uid="uid://c0gid4d7f2fvt" path="res://common/filled-name-logo.png" id="3_ea7y6"]
+[ext_resource type="Texture2D" uid="uid://bglm3l3lilo35" path="res://common/empty-name-logo.png" id="4_yq1ua"]
+[ext_resource type="Texture2D" uid="uid://d1mdusehcq4up" path="res://common/logo.png" id="5_qi7rn"]
+[ext_resource type="StyleBox" uid="uid://bgfrrqxoanpbm" path="res://menus/game_menu_button_hover.tres" id="6_4isp7"]
+[ext_resource type="StyleBox" uid="uid://cdryeo5ahg00w" path="res://menus/game_menu_button.tres" id="6_ksau1"]
+
+[sub_resource type="Theme" id="Theme_uroff"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/styles/focus = ExtResource("6_4isp7")
+Button/styles/hover = ExtResource("6_ksau1")
+Button/styles/normal = ExtResource("6_ksau1")
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkqge")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 1024.0
+texture = ExtResource("2_eiary")
+
+[node name="Filled-name-logo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 100)
+scale = Vector2(0.312, 0.312)
+texture = ExtResource("3_ea7y6")
+
+[node name="Empty-name-logo" type="Sprite2D" parent="."]
+position = Vector2(640, 100)
+scale = Vector2(0.3115, 0.3115)
+texture = ExtResource("4_yq1ua")
+
+[node name="Blinker" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 239.0
+offset_right = 805.0
+offset_bottom = 296.0
+theme_override_colors/font_color = Color(0.988235, 0.796078, 0.0196078, 1)
+theme_override_font_sizes/font_size = 45
+text = "GAME MENU"
+
+[node name="Branding" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -47.0
+offset_right = 89.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.796078, 0.796078, 0.796078, 1)
+theme_override_font_sizes/font_size = 16
+text = "A TPE PROJECT"
+
+[node name="Logos" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Logo8" type="Sprite2D" parent="Logos"]
+position = Vector2(790, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo9" type="Sprite2D" parent="Logos"]
+position = Vector2(846, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo11" type="Sprite2D" parent="Logos"]
+position = Vector2(1014, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo12" type="Sprite2D" parent="Logos"]
+position = Vector2(958, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo13" type="Sprite2D" parent="Logos"]
+position = Vector2(902, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo14" type="Sprite2D" parent="Logos"]
+position = Vector2(1070, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo15" type="Sprite2D" parent="Logos"]
+position = Vector2(1126, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo16" type="Sprite2D" parent="Logos"]
+position = Vector2(1182, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo17" type="Sprite2D" parent="Logos"]
+position = Vector2(1238, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo10" type="Sprite2D" parent="Logos"]
+position = Vector2(36, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo18" type="Sprite2D" parent="Logos"]
+position = Vector2(92, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo19" type="Sprite2D" parent="Logos"]
+position = Vector2(260, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo20" type="Sprite2D" parent="Logos"]
+position = Vector2(204, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo21" type="Sprite2D" parent="Logos"]
+position = Vector2(148, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo22" type="Sprite2D" parent="Logos"]
+position = Vector2(316, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo23" type="Sprite2D" parent="Logos"]
+position = Vector2(372, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo24" type="Sprite2D" parent="Logos"]
+position = Vector2(428, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="Logo25" type="Sprite2D" parent="Logos"]
+position = Vector2(484, 986)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("5_qi7rn")
+
+[node name="GameContainer" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 321.0
+offset_right = 1090.0
+offset_bottom = 924.0
+border_color = Color(0.988235, 0.796078, 0.0196078, 1)
+editor_only = false
+
+[node name="GameTitleContainer" type="ReferenceRect" parent="GameContainer"]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 603.0
+border_color = Color(0.988235, 0.796078, 0.0196078, 1)
+editor_only = false
+
+[node name="VCrossingTitleContainer" type="ReferenceRect" parent="GameContainer"]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 118.0
+border_color = Color(0.988235, 0.796078, 0.0196078, 1)
+editor_only = false
+
+[node name="AsteroidsTitleContainer" type="ReferenceRect" parent="GameContainer"]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 79.0
+border_color = Color(0.988235, 0.796078, 0.0196078, 1)
+editor_only = false
+
+[node name="PongTitleContainer" type="ReferenceRect" parent="GameContainer"]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 39.0
+border_color = Color(0.988235, 0.796078, 0.0196078, 1)
+editor_only = false
+
+[node name="Pong" type="Label" parent="GameContainer"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 6.0
+offset_right = 155.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 20
+text = "PONG"
+
+[node name="Asteroids" type="Label" parent="GameContainer"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 46.0
+offset_right = 199.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 20
+text = "asteroids"
+
+[node name="VCrossing" type="Label" parent="GameContainer"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 87.0
+offset_right = 291.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 16
+text = "Victors' Crossing"
+
+[node name="GameTitle" type="Label" parent="GameContainer"]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 6.0
+offset_right = 838.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "pong"
+horizontal_alignment = 1
+
+[node name="GameDesc" type="Label" parent="GameContainer"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 111.0
+offset_right = 838.0
+offset_bottom = 1497.0
+theme_override_font_sizes/font_size = 20
+text = "f you're visiting this page, you're likely here because you're searching for a random sentence."
+autowrap_mode = 2
+
+[node name="Play" type="Button" parent="GameContainer"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 467.0
+offset_right = 535.0
+offset_bottom = 513.0
+theme = SubResource("Theme_uroff")
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "play"
+
+[node name="Ranks" type="Button" parent="GameContainer"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 467.0
+offset_right = 765.0
+offset_bottom = 513.0
+theme = SubResource("Theme_uroff")
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "ranks"
+
+[node name="SelectionBlinker" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[connection signal="timeout" from="Blinker" to="." method="_on_blinker_timeout"]
+[connection signal="pressed" from="GameContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="timeout" from="SelectionBlinker" to="." method="_on_selection_blinker_timeout"]

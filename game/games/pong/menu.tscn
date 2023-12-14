@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://b83jygb4iyhjv"]
+
+[ext_resource type="Script" path="res://games/pong/menu.gd" id="1_ysyub"]
+[ext_resource type="FontFile" uid="uid://xcijgatc4p08" path="res://fonts/ARCADE_I.TTF" id="2_vjxi3"]
+
+[node name="Menu" type="CanvasGroup"]
+script = ExtResource("1_ysyub")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 141.0
+offset_top = 184.0
+offset_right = 1141.0
+offset_bottom = 270.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_vjxi3")
+theme_override_font_sizes/font_size = 60
+text = "Pong"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Difficulty" type="VBoxContainer" parent="."]
+offset_left = 536.0
+offset_top = 648.0
+offset_right = 732.0
+offset_bottom = 817.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Easy" type="Button" parent="Difficulty"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Easy"
+
+[node name="Medium" type="Button" parent="Difficulty"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Medium"
+
+[node name="Hard" type="Button" parent="Difficulty"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../Back")
+theme_override_font_sizes/font_size = 40
+text = "Hard
+"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 566.0
+offset_top = 889.0
+offset_right = 698.0
+offset_bottom = 937.0
+focus_neighbor_top = NodePath("../Difficulty/Hard")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[connection signal="pressed" from="Difficulty/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Difficulty/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Difficulty/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

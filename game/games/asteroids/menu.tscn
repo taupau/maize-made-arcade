@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://xxk01oticlcy"]
+
+[ext_resource type="PackedScene" uid="uid://b7m5mv1d4to" path="res://games/asteroids/characters/ship.tscn" id="1_6psn5"]
+[ext_resource type="FontFile" uid="uid://eceu308kdn2r" path="res://fonts/Hyperspace Bold.otf" id="2_02fap"]
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Life1" parent="." instance=ExtResource("1_6psn5")]
+position = Vector2(38, 87)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Life2" parent="." instance=ExtResource("1_6psn5")]
+position = Vector2(62, 87)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Life3" parent="." instance=ExtResource("1_6psn5")]
+position = Vector2(86, 87)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Score" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 12.0
+offset_right = 161.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("2_02fap")
+theme_override_font_sizes/font_size = 40
+text = "0"

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://imwerliae37n"]
+
+[ext_resource type="Script" path="res://games/asteroids/characters/segmented_ship.gd" id="1_jpe4e"]
+[ext_resource type="PackedScene" uid="uid://bo0igxusk5j6h" path="res://games/asteroids/characters/components/ship_segment.tscn" id="3_811o2"]
+
+[node name="SegmentedShip" type="Node2D"]
+script = ExtResource("1_jpe4e")
+
+[node name="Seg0" parent="." instance=ExtResource("3_811o2")]
+position = Vector2(-4.76837e-07, -12)
+rotation = 0.417115
+scale = Vector2(1, 0.68)
+new_scale = Vector2(1, 0.68)
+
+[node name="Seg1" parent="." instance=ExtResource("3_811o2")]
+position = Vector2(-1, -11)
+rotation = -0.385718
+scale = Vector2(1, 0.68)
+new_scale = Vector2(1, 0.68)
+
+[node name="Seg2" parent="." instance=ExtResource("3_811o2")]
+position = Vector2(7, 6)
+rotation = 1.55963
+scale = Vector2(1, 0.373)
+new_scale = Vector2(1, 0.373)
+
+[node name="StartFade" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="IncFade" type="Timer" parent="."]
+wait_time = 0.005
+
+[connection signal="timeout" from="StartFade" to="." method="_on_start_fade_timeout"]
+[connection signal="timeout" from="IncFade" to="." method="_on_inc_fade_timeout"]

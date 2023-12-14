@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b1n28msife2ld"]
+
+[ext_resource type="FontFile" uid="uid://bomiv73idmxy5" path="res://fonts/joystix monospace.otf" id="1_5a4d3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ac3ul"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3aa3x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cq3bf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6k7kv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0pllh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_righw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jndr5"]
+
+[resource]
+default_font = ExtResource("1_5a4d3")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(1, 0.796078, 0.0196078, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("1_5a4d3")
+Button/styles/disabled = SubResource("StyleBoxEmpty_ac3ul")
+Button/styles/focus = SubResource("StyleBoxEmpty_3aa3x")
+Button/styles/hover = SubResource("StyleBoxEmpty_cq3bf")
+Button/styles/normal = SubResource("StyleBoxEmpty_6k7kv")
+Button/styles/pressed = SubResource("StyleBoxEmpty_0pllh")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_righw")
+Tree/styles/focus = SubResource("StyleBoxEmpty_jndr5")

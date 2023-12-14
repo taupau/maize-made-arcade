@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://8jx5sqd0s2p8"]
+
+[ext_resource type="PackedScene" uid="uid://2ga0x8itp046" path="res://games/pong/player.tscn" id="1_8w5qf"]
+[ext_resource type="Script" path="res://games/pong/pong.gd" id="1_ooieu"]
+[ext_resource type="PackedScene" uid="uid://hqcrglhtl01f" path="res://games/pong/ball.tscn" id="2_2um7j"]
+[ext_resource type="PackedScene" uid="uid://cr0tiedgqc1cu" path="res://games/pong/goal.tscn" id="4_4e3a3"]
+[ext_resource type="PackedScene" uid="uid://b83jygb4iyhjv" path="res://games/pong/menu.tscn" id="5_g5nqb"]
+[ext_resource type="PackedScene" uid="uid://0sh4jitae3i5" path="res://games/pong/score.tscn" id="6_31a13"]
+[ext_resource type="PackedScene" uid="uid://dxcotys3vomie" path="res://games/pong/game_over.tscn" id="7_dhlhn"]
+
+[node name="Pong" type="Node2D"]
+script = ExtResource("1_ooieu")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 1024.0
+color = Color(0, 0, 0, 1)
+
+[node name="AI" parent="." instance=ExtResource("1_8w5qf")]
+position = Vector2(48, 500)
+
+[node name="Player" parent="." instance=ExtResource("1_8w5qf")]
+position = Vector2(1232, 500)
+
+[node name="Ball" parent="." instance=ExtResource("2_2um7j")]
+position = Vector2(634, 500)
+collision_layer = 3
+collision_mask = 3
+
+[node name="TopWall" parent="." instance=ExtResource("1_8w5qf")]
+position = Vector2(605, 0)
+rotation = 1.5708
+scale = Vector2(0.15, 6)
+
+[node name="BottomWall" parent="." instance=ExtResource("1_8w5qf")]
+position = Vector2(588, 1025)
+rotation = 1.5708
+scale = Vector2(0.15, 6)
+
+[node name="AIGoal" parent="." instance=ExtResource("4_4e3a3")]
+position = Vector2(1280, 0)
+scale = Vector2(1, 1000)
+
+[node name="PlayerGoal" parent="." instance=ExtResource("4_4e3a3")]
+scale = Vector2(1, 100)
+
+[node name="Menu" parent="." instance=ExtResource("5_g5nqb")]
+
+[node name="Score" parent="." instance=ExtResource("6_31a13")]
+visible = false
+
+[node name="GameOver" parent="." instance=ExtResource("7_dhlhn")]
+visible = false
+
+[node name="EndGame" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="score" from="AIGoal" to="." method="_on_ai_score"]
+[connection signal="score" from="PlayerGoal" to="." method="_on_player_score"]
+[connection signal="start" from="Menu" to="." method="_on_menu_start"]
+[connection signal="timeout" from="EndGame" to="." method="_on_end_game_timeout"]
