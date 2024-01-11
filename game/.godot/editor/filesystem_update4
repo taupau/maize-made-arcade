@@ -2,6 +2,5 @@ res://games/pong/pong.tscn
 res://games/pong/menu.tscn
 res://games/pong/game_over.tscn
 res://main.tscn
-res://main_menu/main_menu.tscn
 res://games/asteroids/asteroids.tscn
-res://games/victors_crossing/characters/squirrel.tscn
+res://games/asteroids/asteroids.gd
