@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://materials.tpeng.cc/proj/mma/transparent-logo.png" width="300" height="300" />
+  <img src="https://materials.tpeng.cc/proj/mma/title-logo.png" width="400" height="auto" />
 </div>
 
 # Maize-Made Arcade
