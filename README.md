@@ -9,7 +9,4 @@
 
 The Maize-Made Arcade (MMA) is an arcade machine built from the ground up by TauPau Engineering, powered by a Raspberry Pi 4 running a web-based interface built with the open-source GoDot game engine.
 ## Project Outline
-### Mechanical Design
-### PCB Design
-### Control Interface
-### Game Design
+A detailed project description outlining each component is in the works and will be here soon.
