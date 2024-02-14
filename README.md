@@ -39,7 +39,7 @@ The joystick and buttons work by using basic limit switches, wired to a custom c
 </div>
 
 #### Circuit Board Design
-<img src="https://materials.tpeng.cc/proj/mma/pcb-2d.jpg" width="300" height="auto" />
+<img src="https://materials.tpeng.cc/proj/mma/pcb-2d.png" width="300" height="auto" />
 
 The circuit board design for this project was relatively simple, as each control input is directly connected to a GPIO pin set to INPUT. To make the design a bit more interesting, we incorporated "status" LEDs in the center of the board that light up whenever its corresponding input is activated. The control input pins are active LOW (when a button is pressed the reading on the pin is LOW), as the buttons are pulling the pins to GND when pressed, with the internal pull-up resistors completing the control circuit.
 
